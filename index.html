@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining Control Room (MCR) Operation Toolkit — Studi Kasus</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-yellow: #f59e0b;
+            --accent-orange: #ea580c;
+            --accent-blue: #38bdf8;
+            --green: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        header h1 span {
+            color: var(--accent-yellow);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        p strong {
+            color: var(--text-primary);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .badge {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .step-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .value-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .value-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-yellow);
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Mining Control Room (MCR) <span>Operation Toolkit</span></h1>
+            <p>Studi Kasus: Otomatisasi Validasi Timesheet & Monitoring Unit Alat Berat</p>
+        </header>
+
+        <!-- Tentang Proyek -->
+        <section>
+            <h2>Tentang Proyek</h2>
+            <div class="card">
+                <p>
+                    <strong>Mining Control Room (MCR) Operation Toolkit</strong> adalah proyek independen yang dirancang untuk mengatasi tantangan operasional harian di sektor pertambangan. Proyek ini bertujuan untuk mengeliminasi <em>human error</em> dalam proses pencocokan data operasional antara laporan jam kerja operator (Timesheet) dan pembacaan fisik meteran alat berat (Hour Meter / HM), serta menyajikan visualisasi status unit secara real-time guna mempercepat pembuatan laporan manajemen.
+                </p>
+                <div class="badges">
+                    <span class="badge">Ms. Excel (Advanced)</span>
+                    <span class="badge">SQL (SQLite)</span>
+                    <span class="badge">Python (Pandas & Openpyxl)</span>
+                    <span class="badge">Streamlit Dashboard</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alur Kerja -->
+        <section>
+            <h2>Alur Kerja Sistem</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">Langkah 01</span>
+                    <h3>Simulasi Database Relasional</h3>
+                    <p>Membangun struktur database SQLite lokal (`mcr_data.db`) dengan tabel ternormalisasi `unit_rental` (30 unit alat berat) dan `timesheet` pencatatan harian.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">Langkah 02</span>
+                    <h3>Validasi Otomatis & BAST</h3>
+                    <p>Skrip Python memvalidasi kesesuaian jam kerja dilaporkan vs selisih HM ($HM_{akhir} - HM_{awal}$). Sistem otomatis mendeteksi anomali (misal: selisih pada UNIT-003) dan mengekspornya ke Excel.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">Langkah 03</span>
+                    <h3>Monitoring Dashboard</h3>
+                    <p>Antarmuka web interaktif berbasis Streamlit memonitor status aktivitas unit (Operasi, Standby, Breakdown) secara real-time untuk kebutuhan Daily Report.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dampak Bisnis -->
+        <section>
+            <h2>Dampak Bisnis (Business Value)</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>Efisiensi Waktu</h3>
+                    <p>Memangkas proses audit rekapitulasi data operasional dari yang sebelumnya memakan waktu berjam-jam secara manual menjadi hanya beberapa detik.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Akurasi Finansial</h3>
+                    <p>Mencegah risiko <em>over-payment</em> tagihan vendor rental alat berat melalui deteksi dini diskrepansi sebelum proses BAST disetujui.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Pelaporan Responsif</h3>
+                    <p>Menyajikan metrik dan grafik status unit yang transparan untuk mendukung pengambilan keputusan cepat oleh manajemen MCR.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>MCR Operation Toolkit © 2026 — Dibuat untuk Studi Kasus Portofolio Profesional.</p>
+        </footer>
+    </div>
+</body>
+</html>
